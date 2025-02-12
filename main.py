@@ -11,9 +11,12 @@ attempts = 8
 print("I have chosen a number between 1 and 100. Try to guess it!")
 
 while attempts > 0:
-    guess = int(input(f"You have {attempts} attempts left. Enter your guess: "))
-
-
+    try:
+        guess = int(input(f"You have {attempts} attempts left. Enter your guess: "))
+    except ValueError:
+        print("Please enter a valid number.")
+        continue
+    
     if guess < secretNumber:
         print("Higher!")
     elif guess > secretNumber:
