@@ -7,10 +7,12 @@ print(f"Nice to meet you, {playerName}! Let's start the game.")
 # Generate a random number
 secretNumber = random.randint(1, 100)
 attempts = 8
+previousGuesses = []
 
 print("I have chosen a number between 1 and 100. Try to guess it!")
 
 while attempts > 0:
+    print(f"Previous guesses: {previousGuesses}")  # Show previous guesses
     try:
         guess = int(input(f"You have {attempts} attempts left. Enter your guess (1-100): "))
         if guess < 1 or guess > 100:
@@ -19,6 +21,9 @@ while attempts > 0:
     except ValueError:
         print("Please enter a valid number.")
         continue
+
+    previousGuesses.append(guess)
+
 
     
     if guess < secretNumber:
