@@ -1,2 +1,30 @@
+import random
+
 print("Hello, welcome to your game of high-low")
-input("What is your name: ")
+playerName = input("What is your name: ")
+print(f"Nice to meet you, {playerName}! Let's start the game.")
+
+# Generate a random number
+secretNumber = random.randint(1, 100)
+attempts = 8
+
+print("I have chosen a number between 1 and 100. Try to guess it!")
+
+while attempts > 0:
+    guess = int(input(f"You have {attempts} attempts left. Enter your guess: "))
+
+
+    if guess < secretNumber:
+        print("Higher!")
+    elif guess > secretNumber:
+        print("Lower!")
+    else:
+        print(f"Congratulations, {playerName}! You guessed the number {secretNumber} correctly!")
+        break
+    
+    attempts -= 1
+
+if attempts == 0:
+    print(f"Game over! The correct number was {secretNumber}.")
+
+print(f"Thanks for playing, {playerName}!")
