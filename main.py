@@ -4,7 +4,7 @@ print("Hello, welcome to your game of high-low")
 playerName = input("What is your name: ")
 
 
-
+# Gets the amount of attempts the user wants, can only accept valid numbers above 0
 while True:
     try:
         attempts = int(input("How many tries would you like to have: "))
@@ -18,15 +18,17 @@ while True:
 
 print(f"Nice to meet you, {playerName}! You will have {attempts}, let's start the game")
 
-# Generate a random number
-secretNumber = random.randint(1, 100)
-previousGuesses = []
+secretNumber = random.randint(1, 100)# Generate a random number
+previousGuesses = [] # Keeps track of previous guesses
 
 print("I have chosen a number between 1 and 100. Try to guess it!")
 
+# Main game logic 
 while attempts > 0:
     print(f"Previous guesses: {previousGuesses}")  # Show previous guesses
-    try:
+
+    # Reject bad input 
+    try: 
         guess = int(input(f"You have {attempts} attempts left. Enter your guess (1-100): "))
         if guess < 1 or guess > 100:
             print("Please enter a number between 1 and 100")
@@ -38,7 +40,6 @@ while attempts > 0:
     previousGuesses.append(guess)
 
 
-    
     if guess < secretNumber:
         print("Higher!")
     elif guess > secretNumber:
