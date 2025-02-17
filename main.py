@@ -2,7 +2,7 @@ import random
 
 print("Hello, welcome to your game of high-low")
 playerName = input("What is your name: ")
-attempts = input("How many tries would you like to have: ")
+attempts = int(input("How many tries would you like to have: "))
 print(f"Nice to meet you, {playerName}! You will have {attempts}, let's start the game.")
 
 # Generate a random number
