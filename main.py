@@ -2,8 +2,21 @@ import random
 
 print("Hello, welcome to your game of high-low")
 playerName = input("What is your name: ")
-attempts = int(input("How many tries would you like to have: "))
-print(f"Nice to meet you, {playerName}! You will have {attempts}, let's start the game.")
+
+
+
+while True:
+    try:
+        attempts = int(input("How many tries would you like to have: "))
+        if attempts < 1:
+            print("Please enter a number bigger than 0")
+        else:
+            break
+    except ValueError:
+        print("Please enter a valid number")
+
+
+print(f"Nice to meet you, {playerName}! You will have {attempts}, let's start the game")
 
 # Generate a random number
 secretNumber = random.randint(1, 100)
@@ -16,10 +29,10 @@ while attempts > 0:
     try:
         guess = int(input(f"You have {attempts} attempts left. Enter your guess (1-100): "))
         if guess < 1 or guess > 100:
-            print("Please enter a number between 1 and 100.")
+            print("Please enter a number between 1 and 100")
             continue
     except ValueError:
-            print("Please enter a valid number.")
+            print("Please enter a valid number")
             continue
 
     previousGuesses.append(guess)
