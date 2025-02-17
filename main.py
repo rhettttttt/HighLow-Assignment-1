@@ -2,11 +2,11 @@ import random
 
 print("Hello, welcome to your game of high-low")
 playerName = input("What is your name: ")
-print(f"Nice to meet you, {playerName}! Let's start the game.")
+attempts = input("How many tries would you like to have: ")
+print(f"Nice to meet you, {playerName}! You will have {attempts}, let's start the game.")
 
 # Generate a random number
 secretNumber = random.randint(1, 100)
-attempts = 8
 previousGuesses = []
 
 print("I have chosen a number between 1 and 100. Try to guess it!")
@@ -19,8 +19,8 @@ while attempts > 0:
             print("Please enter a number between 1 and 100.")
             continue
     except ValueError:
-        print("Please enter a valid number.")
-        continue
+            print("Please enter a valid number.")
+            continue
 
     previousGuesses.append(guess)
 
