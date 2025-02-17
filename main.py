@@ -85,7 +85,7 @@ while attempts > 0:
         print(f"Your final score is: {score}")
         break
 
-    attempts -= 1
+    attempts -= 1  # Adds to the amount of commits
 
 if attempts == 0:
     print(f"Game over! The correct number was {secretNumber}.")
